@@ -1,28 +1,38 @@
-define([
-    "dijit/layout/ContentPane",
-    "dojo/store/Memory",
-    "dgrid/OnDemandGrid"
-], function(ContentPane, Memory, OnDemandGrid){
-    var data = [
-        { id: 1, product: "Laptop", quantity: 1, total: 1200 },
-        { id: 2, product: "Mouse", quantity: 2, total: 50 },
-        { id: 3, product: "Keyboard", quantity: 1, total: 75 }
-    ];
-    var store = new Memory({ data: data });
+dojo.provide("app.Orders");
 
-    var grid = new OnDemandGrid({
+dojo.require("dijit.layout.ContentPane");
+dojo.require("dojo.data.ItemFileReadStore");
+dojo.require("dojox.grid.DataGrid");
+
+app.Orders = function(){
+    var data = {
+        identifier: "id",
+        items: [
+            { id: 1, product: "Laptop", quantity: 1, total: 1200 },
+            { id: 2, product: "Mouse", quantity: 2, total: 50 },
+            { id: 3, product: "Keyboard", quantity: 1, total: 75 }
+        ]
+    };
+    
+    var store = new dojo.data.ItemFileReadStore({ data: data });
+    
+    var gridDiv = document.createElement("div");
+    gridDiv.style.width = "100%";
+    gridDiv.style.height = "100%";
+    
+    var grid = new dojox.grid.DataGrid({
         store: store,
-        columns: {
-            product: "Product",
-            quantity: "Quantity",
-            total: "Total"
-        }
-    });
-
-    var cp = new ContentPane({
+        structure: [
+            { name: "Product", field: "product", width: "200px" },
+            { name: "Quantity", field: "quantity", width: "100px" },
+            { name: "Total", field: "total", width: "100px" }
+        ]
+    }, gridDiv);
+    
+    this.pane = new dijit.layout.ContentPane({
         title: "Orders",
-        content: grid
+        content: gridDiv
     });
-
-    return cp;
-});
+    
+    return this.pane;
+};

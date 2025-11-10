@@ -1,11 +1,8 @@
 {
     "name": "dojo-app",
     "version": "1.0.0",
-    "description": "A Dojo 1.9 application.",
+    "description": "A Dojo 1.6 application - legacy version for testing package updater.",
     "dependencies": {
-        "dojo": "1.9.3",
-        "dgrid": "0.3.16",
-        "xstyle": "0.1.2",
-        "put-selector": "0.3.5"
+        "dojo": "1.6.1"
     }
 }

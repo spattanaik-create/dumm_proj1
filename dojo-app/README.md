@@ -1,17 +1,21 @@
-# Dojo 1.9 App
+# Dojo 1.6 App
 
-This is a simple single-page application using the Dojo 1.9 toolkit.
+This is a simple single-page application using the Dojo 1.6.1 toolkit. This application uses legacy Dojo syntax patterns (dojo.provide/dojo.require) and is designed to be upgraded to Dojo 1.17+ by an AI agent package updater.
+
+## Key Differences from Modern Dojo
+
+This application uses **Dojo 1.6.1** which has significant syntax differences from modern Dojo (1.17+):
+
+- **Module System**: Uses `dojo.provide()` and `dojo.require()` instead of AMD (`define`/`require`)
+- **Module Loading**: Synchronous loading with `dojo.require()` instead of asynchronous AMD modules
+- **Data Stores**: Uses `dojo.data.ItemFileReadStore` instead of `dojo/store/Memory`
+- **Grids**: Uses `dojox.grid.DataGrid` instead of `dgrid/OnDemandGrid`
+- **Initialization**: Uses `dojo.addOnLoad()` instead of `require(["dojo/domReady!"], ...)`
+- **Configuration**: Uses `djConfig` attribute instead of `dojoConfig` object
 
 ## Setup
 
-Before running the application, you need to download the Dojo Toolkit library.
-
-1.  Open a terminal and navigate to the root directory of this project.
-2.  Run the following command to download and extract the Dojo library:
-
-    ```bash
-    bash download_dojo.sh
-    ```
+The Dojo 1.6.1 library is already included in the `dojo/dojo-release-1.6.1/` directory.
 
 ## How to Run
 
@@ -25,4 +29,4 @@ Before running the application, you need to download the Dojo Toolkit library.
 
 4.  Open your web browser and navigate to [http://localhost:8000](http://localhost:8000).
 
-You should see the application running.
+You should see the application running with the legacy Dojo 1.6 interface.

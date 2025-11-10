@@ -1,30 +1,29 @@
-define([
-    "dijit/layout/TabContainer",
-    "dijit/layout/ContentPane",
-    "app/Dashboard",
-    "app/Login",
-    "app/Orders",
-    "app/Products",
-    "app/Profile",
-    "app/Settings",
-    "app/Users",
-    "dojo/domReady!"
-], function(TabContainer, ContentPane, Dashboard, Login, Orders, Products, Profile, Settings, Users){
-    return {
-        init: function(){
-            var tc = new TabContainer({
-                style: "height: 100%; width: 100%;"
-            }, "appLayout");
+dojo.provide("app.main");
 
-            tc.addChild(Dashboard);
-            tc.addChild(Login);
-            tc.addChild(Orders);
-            tc.addChild(Products);
-            tc.addChild(Profile);
-            tc.addChild(Settings);
-            tc.addChild(Users);
+dojo.require("dijit.layout.TabContainer");
+dojo.require("dijit.layout.ContentPane");
+dojo.require("app.Dashboard");
+dojo.require("app.Login");
+dojo.require("app.Orders");
+dojo.require("app.Products");
+dojo.require("app.Profile");
+dojo.require("app.Settings");
+dojo.require("app.Users");
 
-            tc.startup();
-        }
-    };
-});
+app.main = {
+    init: function(){
+        var tc = new dijit.layout.TabContainer({
+            style: "height: 100%; width: 100%;"
+        }, "appLayout");
+
+        tc.addChild(new app.Dashboard());
+        tc.addChild(new app.Login());
+        tc.addChild(new app.Orders());
+        tc.addChild(new app.Products());
+        tc.addChild(new app.Profile());
+        tc.addChild(new app.Settings());
+        tc.addChild(new app.Users());
+
+        tc.startup();
+    }
+};
