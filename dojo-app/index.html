@@ -3,20 +3,23 @@
 <head>
     <meta charset="utf-8">
     <title>Dojo 1.9 App</title>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.9.3/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="dojo/dojo-release-1.9.3/dijit/themes/claro/claro.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dgrid@0.3.16/css/dgrid.css">
     <script>
         var dojoConfig = {
             async: true,
             packages: [
                 { name: "app", location: "js" },
-                { name: "dgrid", location: "//cdn.jsdelivr.net/npm/dgrid@0.3.16" },
-                { name: "xstyle", location: "//cdn.jsdelivr.net/npm/xstyle@0.1.2" },
-                { name: "put-selector", location: "//cdn.jsdelivr.net/npm/put-selector@0.3.5" }
-            ]
+                { name: "dojo", location: "dojo/dojo-release-1.9.3/dojo" },
+                { name: "dijit", location: "dojo/dojo-release-1.9.3/dijit" },
+                { name: "dojox", location: "dojo/dojo-release-1.9.3/dojox" },
+                {
+                name: "dgrid",
+                location: "//cdn.jsdelivr.net/npm/dgrid@0.3.16"
+            }]
         };
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.9.3/dojo/dojo.js"></script>
+    <script src="dojo/dojo-release-1.9.3/dojo/dojo.js"></script>
     <script>
         require(["app/main"], function(main){
             main.init();
@@ -25,5 +28,15 @@
 </head>
 <body class="claro">
     <div id="appLayout"></div>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        #appLayout {
+            height: 100%;
+        }
+    </style>
 </body>
 </html>

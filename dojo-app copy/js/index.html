@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Dojo App</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #appLayout {
+            height: 100%;
+        }
+    </style>
+    <script>
+        var dojoConfig = {
+            async: true,
+            packages: [
+                { name: "js", location: location.pathname.replace(/\/[^/]+$/, "") + "/js" },
+                // Adjust the location below based on where dgrid is actually located.
+                // This example assumes it's in a 'libs/dgrid' directory.
+                { name: "dgrid", location: location.pathname.replace(/\/[^/]+$/, "") + "/libs/dgrid" }
+            ]
+        };
+    </script>
+    <script src="libs/dojo/dojo.js"></script>
+</head>
+<body>
+    <div id="appLayout"></div>
+    <script>
+        require(["js/main"], function(main){
+            main.init();
+        });
+    </script>
+</body>
+</html>
